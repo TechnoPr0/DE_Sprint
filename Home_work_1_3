@@ -1,0 +1,72 @@
+def pal(x):
+    x.lower().split()
+    y = []
+    for i in x:
+        if i==' ':
+            continue
+        else:
+            y.append(i)
+    x = "".join(y)
+    z = x[::-1]
+    print ("True") if x==z else print("False")
+
+pal("taco cat")
+pal("rotator")
+pal("black cat")
+
+#Взято из https://habr.com/ru/post/311678/
+def roman_num(x):
+    thous=['','M','MM','MMM']
+    huds=['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM']
+    tens=['','X','XX','XXX','XL','L','LX','LXX','LXXX','XC']
+    ones=['','I','II','III','IV','V','VI','VII','VIII','IX']
+
+    th = thous[x//1000]
+    h = huds[x//100%10]
+    t = tens[x//10%10]
+    o = ones[x%10]
+
+    return th+h+t+o
+
+print(roman_num(2022))
+
+
+def check_brackets(string):
+    c = 0
+    s = 0
+    f = 0
+    circle={'(' : +1, ')': -1}
+    squad={'[': +1, ']': -1}
+    figure={'{': +1,'}': -1}
+    for x in string:
+        if x in circle:
+            c += circle[x]
+        if x in squad:
+            s += squad[x]
+        if x in figure:
+            f += figure[x]
+        if c<0 or s<0 or f<0:
+            return print('False')
+    if c==0 and s==0 and f==0:
+        return print("True")
+    else:
+        return print("False")
+    
+        
+
+check_brackets("[{}({})]")
+check_brackets("{]")
+check_brackets("{")
+
+
+
+def bin_mult(x1, x2):
+    x3 = int(x1, 2)*int(x2, 2)
+    t=''
+    while x3>0:
+        t = str(x3%2)+t
+        x3=x3//2
+    
+    return t
+
+print(bin_mult('111', '101'))
