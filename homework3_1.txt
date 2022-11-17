@@ -1,0 +1,50 @@
+root@639d7e05de41:/# hadoop fs -put /home/vim1.txt /user/cloudera/
+root@639d7e05de41:/# hadoop fs -put /home/vim2.txt /user/cloudera/
+root@639d7e05de41:/# hadoop fs -put /home/vim3.txt /user/cloudera/
+root@639d7e05de41:/# hadoop fs -put /home/vim4.txt /user/cloudera/
+
+root@639d7e05de41:/# hadoop fs -ls /user/cloudera/
+Found 4 items
+-rw-r--r--   3 root cloudera    1275160 2022-11-17 22:14 /user/cloudera/vim1.txt
+-rw-r--r--   3 root cloudera    1366235 2022-11-17 22:14 /user/cloudera/vim2.txt
+-rw-r--r--   3 root cloudera    1476330 2022-11-17 22:14 /user/cloudera/vim3.txt
+-rw-r--r--   3 root cloudera    1246282 2022-11-17 22:14 /user/cloudera/vim4.txt
+
+root@639d7e05de41:/# hadoop fs -getmerge /user/cloudera/vim1.txt /user/cloudera/vim2.txt /user/cloudera/vim3.txt /user/cloudera/vim4.txt /home/output.txt
+root@639d7e05de41:/# hadoop fs -put /home/output.txt /user/cloudera/
+
+
+root@639d7e05de41:/# hadoop fs -chmod -R u+rwx /user/cloudera
+root@639d7e05de41:/# hadoop fs -chmod -R o+rx /user/cloudera
+root@639d7e05de41:/# hadoop fs -ls /user/cloudera
+Found 5 items
+-rwxr--r-x   3 root cloudera    5364007 2022-11-17 22:20 /user/cloudera/output.txt
+-rwxr--r-x   3 root cloudera    1275160 2022-11-17 22:14 /user/cloudera/vim1.txt
+-rwxr--r-x   3 root cloudera    1366235 2022-11-17 22:14 /user/cloudera/vim2.txt
+-rwxr--r-x   3 root cloudera    1476330 2022-11-17 22:14 /user/cloudera/vim3.txt
+-rwxr--r-x   3 root cloudera    1246282 2022-11-17 22:14 /user/cloudera/vim4.txt
+
+
+root@639d7e05de41:/# hadoop fs -du -h /user/cloudera/output.txt
+5.1 M  /user/cloudera/output.txt
+
+root@639d7e05de41:/# hadoop fs -setrep 2 /user/cloudera/
+Replication 2 set: /user/cloudera/output.txt
+Replication 2 set: /user/cloudera/vim1.txt
+Replication 2 set: /user/cloudera/vim2.txt
+Replication 2 set: /user/cloudera/vim3.txt
+Replication 2 set: /user/cloudera/vim4.txt
+
+root@639d7e05de41:/# hadoop fs -du -h -s /user/cloudera/output.txt
+5.1 M  /user/cloudera/output.txt
+
+root@639d7e05de41:/# hadoop fs -cat  /user/cloudera/output.txt | wc -l
+10272
+
+
+
+
+
+
+
+
