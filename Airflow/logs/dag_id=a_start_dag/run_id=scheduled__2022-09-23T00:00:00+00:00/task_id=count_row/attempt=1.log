@@ -1,0 +1,24 @@
+[2022-11-29T11:44:48.348+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: a_start_dag.count_row scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-11-29T11:44:48.374+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: a_start_dag.count_row scheduled__2022-09-23T00:00:00+00:00 [queued]>
+[2022-11-29T11:44:48.375+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-29T11:44:48.375+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-11-29T11:44:48.375+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-11-29T11:44:48.422+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): count_row> on 2022-09-23 00:00:00+00:00
+[2022-11-29T11:44:48.432+0000] {standard_task_runner.py:55} INFO - Started process 10995 to run task
+[2022-11-29T11:44:48.436+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'a_start_dag', 'count_row', 'scheduled__2022-09-23T00:00:00+00:00', '--job-id', '930', '--raw', '--subdir', 'DAGS_FOLDER/start_dag.py', '--cfg-path', '/tmp/tmpjmomt70g']
+[2022-11-29T11:44:48.437+0000] {standard_task_runner.py:83} INFO - Job 930: Subtask count_row
+[2022-11-29T11:44:48.598+0000] {task_command.py:376} INFO - Running <TaskInstance: a_start_dag.count_row scheduled__2022-09-23T00:00:00+00:00 [running]> on host ab28c0b87467
+[2022-11-29T11:44:48.801+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=a_start_dag
+AIRFLOW_CTX_TASK_ID=count_row
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-23T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-23T00:00:00+00:00
+[2022-11-29T11:44:49.538+0000] {logging_mixin.py:137} INFO - Количество строк исключая заголовок = 10000
+[2022-11-29T11:44:49.538+0000] {python.py:177} INFO - Done. Returned value was: None
+[2022-11-29T11:44:49.556+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=a_start_dag, task_id=count_row, execution_date=20220923T000000, start_date=20221129T114448, end_date=20221129T114449
+[2022-11-29T11:44:49.608+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-11-29T11:44:49.650+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

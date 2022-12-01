@@ -1,0 +1,40 @@
+[2022-12-01T05:52:14.674+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: a_start_dag.create manual__2022-12-01T05:52:09.657422+00:00 [queued]>
+[2022-12-01T05:52:14.686+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: a_start_dag.create manual__2022-12-01T05:52:09.657422+00:00 [queued]>
+[2022-12-01T05:52:14.687+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-01T05:52:14.687+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-12-01T05:52:14.687+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-01T05:52:14.706+0000] {taskinstance.py:1383} INFO - Executing <Task(PythonOperator): create> on 2022-12-01 05:52:09.657422+00:00
+[2022-12-01T05:52:14.712+0000] {standard_task_runner.py:55} INFO - Started process 56692 to run task
+[2022-12-01T05:52:14.716+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'a_start_dag', 'create', 'manual__2022-12-01T05:52:09.657422+00:00', '--job-id', '1114', '--raw', '--subdir', 'DAGS_FOLDER/start_dag.py', '--cfg-path', '/tmp/tmp78r_8me5']
+[2022-12-01T05:52:14.717+0000] {standard_task_runner.py:83} INFO - Job 1114: Subtask create
+[2022-12-01T05:52:14.819+0000] {task_command.py:376} INFO - Running <TaskInstance: a_start_dag.create manual__2022-12-01T05:52:09.657422+00:00 [running]> on host ab28c0b87467
+[2022-12-01T05:52:14.901+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=a_start_dag
+AIRFLOW_CTX_TASK_ID=create
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-01T05:52:09.657422+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-12-01T05:52:09.657422+00:00
+[2022-12-01T05:52:14.992+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/start_dag.py", line 28, in create_column
+    df["reverse"] = reverse_list
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3612, in __setitem__
+    self._set_item(key, value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3784, in _set_item
+    value = self._sanitize_column(value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 4509, in _sanitize_column
+    com.require_length_match(value, self.index)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/common.py", line 532, in require_length_match
+    "Length of values "
+ValueError: Length of values (0) does not match length of index (10000)
+[2022-12-01T05:52:15.001+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=a_start_dag, task_id=create, execution_date=20221201T055209, start_date=20221201T055214, end_date=20221201T055215
+[2022-12-01T05:52:15.012+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 1114 for task create (Length of values (0) does not match length of index (10000); 56692)
+[2022-12-01T05:52:15.058+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-12-01T05:52:15.076+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check

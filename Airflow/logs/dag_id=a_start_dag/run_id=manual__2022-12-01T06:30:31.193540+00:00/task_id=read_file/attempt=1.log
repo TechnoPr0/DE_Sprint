@@ -1,0 +1,34 @@
+[2022-12-01T06:30:38.187+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: a_start_dag.read_file manual__2022-12-01T06:30:31.193540+00:00 [queued]>
+[2022-12-01T06:30:38.199+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: a_start_dag.read_file manual__2022-12-01T06:30:31.193540+00:00 [queued]>
+[2022-12-01T06:30:38.200+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-01T06:30:38.200+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 1
+[2022-12-01T06:30:38.200+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-01T06:30:38.218+0000] {taskinstance.py:1383} INFO - Executing <Task(BashOperator): read_file> on 2022-12-01 06:30:31.193540+00:00
+[2022-12-01T06:30:38.224+0000] {standard_task_runner.py:55} INFO - Started process 58460 to run task
+[2022-12-01T06:30:38.227+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'a_start_dag', 'read_file', 'manual__2022-12-01T06:30:31.193540+00:00', '--job-id', '1142', '--raw', '--subdir', 'DAGS_FOLDER/start_dag.py', '--cfg-path', '/tmp/tmpzsfrvrkl']
+[2022-12-01T06:30:38.228+0000] {standard_task_runner.py:83} INFO - Job 1142: Subtask read_file
+[2022-12-01T06:30:38.294+0000] {task_command.py:376} INFO - Running <TaskInstance: a_start_dag.read_file manual__2022-12-01T06:30:31.193540+00:00 [running]> on host ab28c0b87467
+[2022-12-01T06:30:38.373+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=a_start_dag
+AIRFLOW_CTX_TASK_ID=read_file
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-01T06:30:31.193540+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-12-01T06:30:31.193540+00:00
+[2022-12-01T06:30:38.374+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-12-01T06:30:38.375+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cat file.csv']
+[2022-12-01T06:30:38.387+0000] {subprocess.py:86} INFO - Output:
+[2022-12-01T06:30:38.392+0000] {subprocess.py:93} INFO - cat: file.csv: No such file or directory
+[2022-12-01T06:30:38.393+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2022-12-01T06:30:38.404+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2022-12-01T06:30:38.408+0000] {taskinstance.py:1406} INFO - Marking task as FAILED. dag_id=a_start_dag, task_id=read_file, execution_date=20221201T063031, start_date=20221201T063038, end_date=20221201T063038
+[2022-12-01T06:30:38.423+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 1142 for task read_file (Bash command failed. The command returned a non-zero exit code 1.; 58460)
+[2022-12-01T06:30:38.443+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-12-01T06:30:38.468+0000] {taskinstance.py:2623} INFO - 0 downstream tasks scheduled from follow-on schedule check
